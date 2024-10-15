@@ -5,16 +5,17 @@ function setup() {
 function draw() {
   background(255);
   myShape(0,0,400,400)
-  
 }
 
+
 function myShape(x,y,w,h) {
+  let cX = x+w/2
+  let cY = y+h/2
+  let diameter = 2 * sqrt((mouseX-(cX))**2 + (mouseY-(cY))**2)
   strokeWeight(0.4) 
   fill("white")
-  let diameter = 2 * sqrt((mouseX-(x+w/2))**2 + (mouseY-(y+h/2))**2)
-  circle(x+w/2,y+h/2, diameter)
+  circle(cX,cY,diameter)
   fill("black")
-  arc(x+w/2,y+h/2,diameter,diameter,0.75*PI,PI+PI/2,CHORD)
-  arc(x+w/2,y+h/2,diameter, diameter,-PI/2,0.25*PI,CHORD)
-
+  arc(cX,cY,diameter,diameter,0.75*PI,PI+PI/2,CHORD)
+  arc(cX,cY,diameter, diameter,-PI/2,0.25*PI,CHORD)
 }
